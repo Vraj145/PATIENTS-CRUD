@@ -1,0 +1,21 @@
+.row {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding: 2px;
+}
+.footer {
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+.col h4 {
+    color: white;
+    background: black;
+    margin-bottom: 0px;
+    padding: 15px;
+}
+ .content {
+            flex: 1;
+        }

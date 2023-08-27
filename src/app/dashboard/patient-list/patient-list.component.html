@@ -1,0 +1,93 @@
+<div class="container">
+    <div class="form-container">
+        <h1 style="display: flex; justify-content: center;">Add Patient Details</h1>
+        <form [formGroup]="context" (ngSubmit)="submitForm()" class="patient-form">
+            <div>
+                <mat-form-field>
+                    <mat-label>Mobile No</mat-label>
+                    <input matInput placeholder="Mobile No" name="mobileNo" maxlength="10" formControlName="mobileNo">   
+                    <mat-error *ngIf="context.get('mobileNo')?.invalid && (context.get('mobileNo')?.dirty || context.get('mobileNo')?.touched)">
+                        <span *ngIf="context.get('mobileNo')?.hasError('required')">Mobile No is required.</span>
+                        <span *ngIf="context.get('mobileNo')?.hasError('maxlength')">Mobile No should be 10 digits long.</span>
+                      </mat-error>
+                    </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field>
+                    <mat-label>First Name</mat-label>
+                    <input matInput placeholder="First Name" name="firstName" formControlName="firstName">
+                    <mat-error *ngIf="context.get('firstName')?.invalid && (context.get('firstName')?.dirty || context.get('firstName')?.touched)">     
+                        <span *ngIf="context.get('firstName')?.hasError('required')">First Name is required.</span>
+                      </mat-error>
+                    </mat-form-field>
+               
+            </div>
+            <div>
+                <mat-form-field>
+                    <mat-label>Last Name</mat-label>
+                    <input matInput placeholder="Last Name" name="lastName" formControlName="lastName">
+                
+                <mat-error *ngIf="context.get('lastName')?.invalid && (context.get('lastName')?.dirty || context.get('lastName')?.touched)">
+                    <span *ngIf="context.get('lastName')?.hasError('required')">Last Name is required.</span>
+                  </mat-error>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field>
+                    <mat-label>Zip Code</mat-label>
+                    <input matInput placeholder="Zip Code" name="zipCode" formControlName="zipCode">
+                
+                <mat-error *ngIf="context.get('zipCode')?.invalid && (context.get('zipCode')?.dirty || context.get('zipCode')?.touched)">
+                    <span *ngIf="context.get('zipCode')?.hasError('required')">Zip Code is required.</span>
+                  </mat-error>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field>
+                    <mat-label>Date of Birth</mat-label>
+                    <input matInput [matDatepicker]="dobPicker" placeholder="Date of Birth" name="dob"
+                        formControlName="dob">
+                    <mat-datepicker-toggle matSuffix [for]="dobPicker"></mat-datepicker-toggle>
+                    <mat-datepicker #dobPicker></mat-datepicker>
+                
+                <mat-error *ngIf="context.get('dob')?.invalid && (context.get('dob')?.dirty || context.get('dob')?.touched)">
+                    <span *ngIf="context.get('dob')?.hasError('required')">Date of Birth is required.</span>
+                  </mat-error>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field>
+                    <mat-label>Gender</mat-label>
+                    <mat-select name="gender" formControlName="gender">
+                        <mat-option value="male">Male</mat-option>
+                        <mat-option value="female">Female</mat-option>
+                        <mat-option value="other">Other</mat-option>
+                    </mat-select>
+              
+                <mat-error *ngIf="context.get('gender')?.invalid && (context.get('gender')?.dirty || context.get('gender')?.touched)">
+                    <span *ngIf="context.get('gender')?.hasError('required')">Gender is required.</span>
+                  </mat-error>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field>
+                    <mat-label>Blood Group</mat-label>
+                    <input matInput placeholder="Blood Group" name="bloodGroup" formControlName="bloodGroup">
+                
+                <mat-error *ngIf="context.get('bloodGroup')?.invalid && (context.get('bloodGroup')?.dirty || context.get('bloodGroup')?.touched)">
+                    <span *ngIf="context.get('bloodGroup')?.hasError('required')">Blood Group is required.</span>
+                  </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="btn-container">
+                <button class="btn-sub" mat-raised-button color="btn-primary" type="submit" [disabled]="!context.valid">Submit</button>
+                <button class="btn-sub" mat-raised-button color="btn-primary" (click)="close()">Cancel</button>
+            </div>
+                
+        </form>
+         <!-- Display individual field error messages when the submit button is clicked -->
+    <div class="error-message" *ngIf="context.invalid && context.touched && !context.valid">
+        Please correct the errors in the form before submitting.
+      </div>
+    </div>
+</div>

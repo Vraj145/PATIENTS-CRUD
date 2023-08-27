@@ -1,0 +1,36 @@
+form.patient-form.ng-pristine.ng-invalid.ng-touched {
+    padding: 25px;
+}
+.btn-container {
+    display: flex;
+    column-gap: 15px;
+}
+button.btn-sub {
+    padding: 10px;
+    width: 20%;
+    background: #3f51b5;
+    color: white;
+    min-width: 120px;
+}
+@media (min-width: 1200px){
+.h1, h1 {
+font-size: 2.5rem;
+display: flex;
+justify-content: center;
+}
+}
+
+/* Style for individual error messages */
+.mat-error {
+    color: red;
+    font-size: 12px;
+    margin-top: 4px;
+  }
+  
+  /* Style for the general error message */
+  .error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 10px;
+  }
+  
